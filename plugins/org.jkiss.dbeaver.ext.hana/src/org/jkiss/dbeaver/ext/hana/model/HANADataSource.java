@@ -69,8 +69,7 @@ public class HANADataSource extends GenericDataSource implements DBCQueryPlanner
     @Override
     protected DBPDataSourceInfo createDataSourceInfo(DBRProgressMonitor monitor, @NotNull JDBCDatabaseMetaData metaData)
     {
-        final HANADataSourceInfo info = new HANADataSourceInfo(metaData);
-        
+        final HANADataSourceInfo info = new HANADataSourceInfo(metaData); 
     }
     
     /*
