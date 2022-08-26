@@ -55,8 +55,7 @@ public abstract class DBNDatabaseNode extends DBNNode implements DBNLazyNode, DB
 
     private static final DBNDatabaseNode[] EMPTY_NODES = new DBNDatabaseNode[0];
 
-    private volatile boolean locked;
-    protected volatile DBNDatabaseNode[] childNodes;
+    
     private boolean filtered;
 
     protected DBNDatabaseNode(DBNNode parentNode) {
@@ -103,11 +102,7 @@ public abstract class DBNDatabaseNode extends DBNNode implements DBNLazyNode, DB
      * @param useSimpleName do not append any qualifiers to the name. Usually sued for functions like rename
      * @param showDefaults  return some default value if actual name is empty. otherwise returns null
      */
-    public String getPlainNodeName(boolean useSimpleName, boolean showDefaults) {
-        DBSObject object = getObject();
-        if (object == null) {
-            return showDefaults ? DBConstants.NULL_VALUE_LABEL : null;
-        }
+   
         String objectName;
         if (!useSimpleName) {
             if (object instanceof DBPOverloadedObject) {
