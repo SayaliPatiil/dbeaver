@@ -50,8 +50,7 @@ public class LocalBinLogConnection implements ErosaConnection {
 
     private FileParserListener  parserListener;
 
-    public LocalBinLogConnection(){
-    }
+    
 
     public boolean isRdsOssMode() {
         return isRdsOssMode;
