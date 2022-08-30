@@ -69,8 +69,7 @@ public class HANADataSource extends GenericDataSource implements DBCQueryPlanner
     @Override
     protected DBPDataSourceInfo createDataSourceInfo(DBRProgressMonitor monitor, @NotNull JDBCDatabaseMetaData metaData)
     {
-        final HANADataSourceInfo info = new HANADataSourceInfo(metaData);
-        return info;
+        final HANADataSourceInfo info = new HANADataSourceInfo(metaData); 
     }
     
     /*
@@ -86,7 +85,7 @@ public class HANADataSource extends GenericDataSource implements DBCQueryPlanner
     /*
      * explain
      */
-    @NotNull
+    
     @Override
     public DBCPlan planQueryExecution(@NotNull DBCSession session, @NotNull String query, @NotNull DBCQueryPlannerConfiguration configuration)
     throws DBCException {
@@ -132,7 +131,7 @@ public class HANADataSource extends GenericDataSource implements DBCQueryPlanner
     public void initializeSysViewColumnUnits(@NotNull DBRProgressMonitor monitor) throws DBException {
         if (sysViewColumnUnits != null)
             return;
-        sysViewColumnUnits = new HashMap<String, String>();
+       
         String stmt = "SELECT VIEW_NAME||'.'||VIEW_COLUMN_NAME, UNIT FROM SYS.M_MONITOR_COLUMNS WHERE UNIT IS NOT NULL";
         try (JDBCSession session = DBUtils.openMetaSession(monitor, this, "Read generic metadata")) {
             try {
